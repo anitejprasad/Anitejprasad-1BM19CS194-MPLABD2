@@ -53,9 +53,8 @@ AG:     MOV BH, 00H
         INC SI
         MOV [SI], BYTE PTR '$'
         DISPLAY MSG1
-        DISPLAY TIMESTR                 ; DISPLAY THE TIME...
-; CHECK FOR THE KEYBOARD STATUS....
-; IF KEY IS PRESSED, TERMINATE THE PROGRAM..
+        DISPLAY TIMESTR               
+        
         MOV AH, 0BH
         INT 21H
         CMP AL, 00H
