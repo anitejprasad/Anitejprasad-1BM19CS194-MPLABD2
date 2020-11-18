@@ -8,25 +8,25 @@ ENDM
 
 .DATA
 TIMESTR DB 020H DUP(?)
-MSG1 DB "CURRENT TIME :: $"
+MSG1 DB "CURRENT TIME: $"
 
 .CODE
 START : MOV AX, @DATA
         MOV DS, AX
-; CLEAR THE SCREEN
+
         MOV AH, 00H
         MOV AL, 03H
         INT 10H
-; SET A PARTICULAR LOCATION. FOR DYNAMIC CLOCK
+
 AG:     MOV BH, 00H
         MOV DH, 01H
         MOV DL, 01H
         MOV AH, 02H
         INT 10H
         MOV SI, OFFSET TIMESTR
-        MOV AH, 2CH             ; INTERRUPT FOR GETTING SYSTEM TIME
+        MOV AH, 2CH             
         INT 21H
-        MOV AL, CH              ; CH=HOUR, CL=MINUTES, DH=SECOND
+        MOV AL, CH              
         AAM
         ADD AX, 3030H
         MOV [SI], AH
