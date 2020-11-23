@@ -1,3 +1,5 @@
+; program :: write a program to simulate a decimal up counter 00-99
+
 .model small
 .code
    mov cl,00
