@@ -1,3 +1,5 @@
+; program :: read a pair of input co-ordinates in BCD and move the cursor to the specified location on the screen
+
 .model small
 disp macro msg
   lea dx,msg
